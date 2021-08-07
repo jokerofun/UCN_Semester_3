@@ -1,0 +1,25 @@
+C:\DMA_Programming\CSharp\MVC\MovieSystem\MovieExperienceDb\bin\Debug\MovieExperienceDb.dll
+C:\DMA_Programming\CSharp\MVC\MovieSystem\MovieExperienceDb\bin\Debug\MovieExperienceDb.pdb
+C:\DMA_Programming\CSharp\MVC\MovieSystem\MovieExperienceDb\bin\Debug\Dapper.dll
+C:\DMA_Programming\CSharp\MVC\MovieSystem\MovieExperienceDb\bin\Debug\Dapper.xml
+C:\DMA_Programming\CSharp\MVC\MovieSystem\MovieExperienceDb\obj\Debug\MovieExperienceDb.csproj.CoreCompileInputs.cache
+C:\DMA_Programming\CSharp\MVC\MovieSystem\MovieExperienceDb\obj\Debug\MovieExperienceDb.csproj.CopyComplete
+C:\DMA_Programming\CSharp\MVC\MovieSystem\MovieExperienceDb\obj\Debug\MovieExperienceDb.dll
+C:\DMA_Programming\CSharp\MVC\MovieSystem\MovieExperienceDb\obj\Debug\MovieExperienceDb.pdb
+C:\test2\MovieSystem (2)\MovieExperienceDb\bin\Debug\MovieExperienceDb.dll
+C:\test2\MovieSystem (2)\MovieExperienceDb\bin\Debug\MovieExperienceDb.pdb
+C:\test2\MovieSystem (2)\MovieExperienceDb\bin\Debug\Dapper.dll
+C:\test2\MovieSystem (2)\MovieExperienceDb\bin\Debug\Dapper.xml
+C:\test2\MovieSystem (2)\MovieExperienceDb\obj\Debug\MovieExperienceDb.csproj.CoreCompileInputs.cache
+C:\test2\MovieSystem (2)\MovieExperienceDb\obj\Debug\MovieExperienceDb.csproj.CopyComplete
+C:\test2\MovieSystem (2)\MovieExperienceDb\obj\Debug\MovieExperienceDb.dll
+C:\test2\MovieSystem (2)\MovieExperienceDb\obj\Debug\MovieExperienceDb.pdb
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDb\bin\Debug\MovieExperienceDb.dll
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDb\bin\Debug\MovieExperienceDb.pdb
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDb\bin\Debug\Dapper.dll
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDb\bin\Debug\Dapper.xml
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDb\obj\Debug\MovieExperienceDb.csprojAssemblyReference.cache
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDb\obj\Debug\MovieExperienceDb.csproj.CoreCompileInputs.cache
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDb\obj\Debug\MovieExperienceDb.csproj.CopyComplete
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDb\obj\Debug\MovieExperienceDb.dll
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDb\obj\Debug\MovieExperienceDb.pdb

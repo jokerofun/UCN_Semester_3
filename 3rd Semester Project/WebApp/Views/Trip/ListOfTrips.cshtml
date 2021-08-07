@@ -1,0 +1,192 @@
+﻿@using PagedList;
+
+@using PagedList.Mvc;
+
+@using Microsoft.AspNet.Identity
+
+@model IPagedList<WebApp.Models.Trip>
+
+@{
+    ViewBag.Title = "ListOfTrips";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <style>
+        #searchTable {
+            margin-top: 15px;
+        }
+
+        a {
+            color: blue;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        a:hover {
+            color: #FF5722;
+        }
+
+    </style>
+</head>
+
+@*Article used for implementing the Search Form, Paging and Sorting*@
+@*https://www.c-sharpcorner.com/UploadFile/219d4d/implement-search-paging-and-sort-in-mvc-5/*@
+@*Also we could take a look into this: https://datatables.net/ It's awesome but didn't work for some reason when i quickly tried :(*@
+<strong>
+    <body style="font-family:'Times New Roman';color:black;font-size: 17px;">
+        <table id="searchTable">
+            @using (Html.BeginForm("ListOfTrips", "Trip", FormMethod.Get))
+            {
+                <tr>
+                    <td><label for="name">Name:</label></td>
+                    <td><label for="departurePlace">Departure Place:</label></td>
+                    <td><label for="arrivalPlace">Arrival Place:</label></td>
+                    <td><label for="departureDate">Departure Date:</label></td>
+                    <td><label for="arrivalDate">Arrival Date:</label></td>
+                </tr>
+                <tr>
+                    <td>@Html.TextBox("name", "", new { @class = "form-control" })</td>
+                    <td>@Html.TextBox("departurePlace", "", new { @class = "form-control" })</td>
+                    <td>@Html.TextBox("arrivalPlace", "", new { @class = "form-control" })</td>
+                    <td>@Html.TextBox("departureDate", "", new { @class = "form-control", @type = "date" })</td>
+                    <td>@Html.TextBox("arrivalDate", "", new { @class = "form-control", @type = "date" })</td>
+                    @if (ViewBag.BusinessAccess != null)
+                    {
+                        <td>@Html.Hidden("userId", User.Identity.GetUserId(), null)</td>
+                    }
+                    <td><input type="submit" name="submit" value="Search" class="btn btn-default" /></td>
+                </tr>
+            }
+        </table>
+
+        <table id="tripTable" class="table">
+            <tr>
+                <th>
+                    @Html.ActionLink("Name", "ListOfTrips", new
+                    {
+                   sort = ViewBag.SortByName,
+                   name = Request.QueryString["name"],
+                   departurePlace = Request.QueryString["departurePlace"],
+                   arrivalPlace = Request.QueryString["arrivalPlace"],
+                   departureDate = Request.QueryString["departureDate"],
+                   arrivalDate = Request.QueryString["arrivalDate"],
+                   userId = ViewBag.BusinessAccess != null ? User.Identity.GetUserId() : null
+               })
+                    @*@Html.DisplayNameFor(model => model.First().Name)*@
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Description)
+                </th>
+                <th>
+                    @Html.ActionLink("Departure Place", "ListOfTrips", new
+                    {
+                   sort = ViewBag.SortByDeparturePlace,
+                   name = Request.QueryString["name"],
+                   departurePlace = Request.QueryString["departurePlace"],
+                   arrivalPlace = Request.QueryString["arrivalPlace"],
+                   departureDate = Request.QueryString["departureDate"],
+                   arrivalDate = Request.QueryString["arrivalDate"],
+                   userId = ViewBag.BusinessAccess != null ? User.Identity.GetUserId() : null
+               })
+                </th>
+                <th>
+                    @Html.ActionLink("Arrival Place", "ListOfTrips", new
+                    {
+                   sort = ViewBag.SortByArrivalPlace,
+                   name = Request.QueryString["name"],
+                   departurePlace = Request.QueryString["departurePlace"],
+                   arrivalPlace = Request.QueryString["arrivalPlace"],
+                   departureDate = Request.QueryString["departureDate"],
+                   arrivalDate = Request.QueryString["arrivalDate"],
+                   userId = ViewBag.BusinessAccess != null ? User.Identity.GetUserId() : null
+               })
+                </th>
+                <th>
+                    @Html.ActionLink("Departure Date", "ListOfTrips", new
+                    {
+                   sort = ViewBag.SortByDepartureDate,
+                   name = Request.QueryString["name"],
+                   departurePlace = Request.QueryString["departurePlace"],
+                   arrivalPlace = Request.QueryString["arrivalPlace"],
+                   departureDate = Request.QueryString["departureDate"],
+                   arrivalDate = Request.QueryString["arrivalDate"],
+                   userId = ViewBag.BusinessAccess != null ? User.Identity.GetUserId() : null
+               })
+                </th>
+                <th>
+                    @Html.ActionLink("Arrival Date", "ListOfTrips", new
+                    {
+                   sort = ViewBag.SortByArrivalDate,
+                   name = Request.QueryString["name"],
+                   departurePlace = Request.QueryString["departurePlace"],
+                   arrivalPlace = Request.QueryString["arrivalPlace"],
+                   departureDate = Request.QueryString["departureDate"],
+                   arrivalDate = Request.QueryString["arrivalDate"],
+                   userId = ViewBag.BusinessAccess != null ? User.Identity.GetUserId() : null
+               })
+                </th>
+                <th></th>
+            </tr>
+
+            @if (Model.Count() == 0)
+            {
+                <tr> <td colspan="3"> Trips not found </td> </tr>
+            }
+            else
+            {
+
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>
+                            @item.Description
+                        </td>
+                        <td>
+                            @item.DeparturePlace
+                        </td>
+                        <td>
+                            @item.ArrivalPlace
+                        </td>
+                        <td>
+                            @item.DepartureDate
+                        </td>
+                        <td>
+                            @item.ArrivalDate
+                        </td>
+                        <td>
+                            @Html.ActionLink("To Tickets", "ListOfTickets", "Tickets", new { id = item.ID }, null)
+                            @if (User.IsInRole("Admin") || User.Identity.GetUserId() == item.UserId)
+                            {
+                                @Html.ActionLink("Edit ", "UpdateTrip", new { id = item.ID, userId = ViewBag.BusinessAccess != null ? User.Identity.GetUserId() : null }, new { @class = "a" })
+                                @Html.ActionLink("Delete", "DeleteTrip", new { id = item.ID, userId = ViewBag.BusinessAccess != null ? User.Identity.GetUserId() : null })
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+
+
+        </table>
+
+        @if (User.IsInRole("Business") || User.IsInRole("Admin"))
+        {
+            <button>@Html.ActionLink("Create New Trip", "CreateTrip/" + User.Identity.GetUserId(), "Trip") </button>
+        }
+
+        @Html.PagedListPager(Model, pageNumber => Url.Action("ListOfTrips", new
+        {
+            pageNumber,
+            name = Request.QueryString["name"],
+            departurePlace = Request.QueryString["departurePlace"],
+            arrivalPlace = Request.QueryString["arrivalPlace"],
+            departureDate = Request.QueryString["departureDate"],
+            arrivalDate = Request.QueryString["arrivalDate"],
+            sort = Request.QueryString["sort"],
+            userId = ViewBag.BusinessAccess != null ? User.Identity.GetUserId() : null
+        }))
+    </body>
+</strong>

@@ -1,0 +1,112 @@
+﻿@using Microsoft.AspNet.Identity
+@using WebApp.Controllers;
+@model IEnumerable<WebApp.Models.DisplayShopingCartTicket>
+
+@*Will be helpful: https://stackoverflow.com/questions/27517912/persisting-information-between-two-view-requests-in-mvc*@
+
+<head>
+    <style>
+        .btn1 {
+            border: 2px solid black;
+            background-color: black;
+            color: white;
+            padding: 2px 2px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        /* Orange */
+        .ShopingBtn {
+            border-color: #ff9800;
+            color: orange;
+        }
+
+            .ShopingBtn:hover {
+                background: #ff9800;
+                color: white;
+            }
+    </style>
+</head>
+
+@if (Request.IsAuthenticated)
+{
+    <div class="dropdown">
+        <button class="btn1 ShopingBtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="~/SourceIMG/Shopping_cart_1.jpg" alt="Shopping_Cart" width="43" height="43">
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayName("Ticket Name")
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+                    <th>
+                        @Html.DisplayName("Amount")
+                    </th>
+
+                    <th></th>
+                </tr>
+                @*@{
+                        UserTicketsController controller = new UserTicketsController();
+                        controller.SetViewBagShoppingCart();
+                    }*@
+                @if (Session["TicketsBought"] != null)
+                {
+                    foreach (var item in Session["TicketsBought"] as List<WebApp.Models.DisplayShopingCartTicket>)
+                    {
+                        <tr>
+                            <td>
+                                @item.TicketName
+                            </td>
+                            <td>
+                                @item.Price
+                            </td>
+                            <td>
+                                @item.AmountBought
+                            </td>
+                            <td>
+                                    @Html.ActionLink("X", "RemoveFromShopingList", "UserTickets", new { id = item.Id }, null)
+                                </td>
+                            @*<td>
+                                <div id="Button">
+                                    <button onclick="RemoveTicket(new { id = item.Id })"> X </button>
+                                </div>
+                            </td>*@
+                        </tr>
+                    }
+                }
+                else
+                {
+                }
+            </table>
+            @if (Session["TicketsBought"] != null)
+            {
+                <button>@Html.ActionLink("Buy", "ShoppingCartOverview", "Shared")</button>
+            }
+            @*@Html.ActionLink("Buy", "CompleteTransaction", "UserTickets", new { userId = User.Identity.GetUserId() }, null)*@
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+
+        function RemoveTicket(id) {
+            $.ajax({
+                type: "GET",
+                data: { id },
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                url: "/UserTickets/RemoveFromShopingList",
+                success: function () {
+                    alert("Alex was here!")
+                }
+            });
+        };
+    </script>
+    }

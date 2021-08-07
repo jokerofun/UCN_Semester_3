@@ -1,0 +1,191 @@
+﻿@model WebApp.Models.DisplayShopingCartTicket
+
+@{
+    ViewBag.Title = "AddToCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Add to cart</h1>
+
+
+@using (Html.BeginForm("BuyTicket", "Tickets", FormMethod.Post, new { @class = "form-horizontal", role = "form", @id = "formid" }))
+{
+    @Html.AntiForgeryToken()
+
+    @*@Html.ValidationSummary("", new { @class = "text-danger" })*@
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div id="AmountSet" class="form-group">
+            @Html.Label("Amount", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AmountBought, new { htmlAttributes = new { @class = "form-control input-validation-error" } })
+                @Html.ValidationMessageFor(model => model.AmountBought, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div id="set1" class="form-group">
+            <label>First Name </label>
+            @Html.TextBox("FirstName", "", new { @class = "form-control name-input", @pattern = "[a-zA-Z]*", title = "Name can consist only of letters." })
+            <label>Last Name </label>
+            @Html.TextBox("LastName", "", new { @class = "form-control name-input", @pattern = "[a-zA-Z]*", title = "Name can consist only of letters." })
+        </div>
+
+        <div class="form-group">
+            <div id="Button3" class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Confirm" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+<div id="Button1">
+    <button onclick="HideAmount()"> Confirm Amout </button>
+</div>
+<div id="Button2">
+  <button id="buyerName"> Confirm Name </button>
+</div>
+
+
+<div>
+    <table id="table1" class="table">
+        <tr>
+            <th>
+                Ticket Number
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th></th>
+        </tr>
+    </table>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        var times = 0;
+        hideOnLoad();
+        $('#AmountBought').change(function () {
+            var value = $(this).val();
+            if (value > 0 && value <= 8) {
+                $('div[id=Button1').show();
+            } else {
+                hideOnLoad();
+            }
+        });
+
+        function hideOnLoad() {
+            $('div[id*=set]').hide();
+            $('div[id*=set]').hide();
+            $('div[id*=Button]').hide();
+            $('div[id*=Button]').hide();
+        }
+
+        function HideAmount() {
+            $('div[id*=AmountSet]').hide();
+            $('div[id=Button1').hide();
+            $('div[id=set1').show();
+            times = $("#AmountBought").val()
+            $('div[id=Button2').show();
+        }
+
+        function StopNames() {
+            if (times <= 0) {
+                $('div[id=Button2').hide();
+                $('div[id=set1').hide();
+                $('div[id=Button3').show();
+            }
+        }
+
+        function ClearNameText() {
+            $("#FirstName").val("");
+            $("#LastName").val("");
+        }
+
+        $('#formid').on('keyup keypress', function (e) {
+            var keyCode = e.keyCode || e.which;
+            if (keyCode === 13) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        $(function () {
+            $("#buyerName").click(function () {
+                if ($('#FirstName').val() && $('#LastName').val()) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Tickets/AddBuyerName",
+                        data: '{FirstName: "' + $("#FirstName").val() + '", LastName: "' + $("#LastName").val() + '"  }',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (response) {
+                            alert("Name added!");
+                        },
+                        failure: function (response) {
+                            alert("Name added!");
+                        },
+                        error: function (response) {
+                            TableAdd()
+                            alert("Name added!");
+                        }
+
+                    });
+                } else {
+                    alert("Please fill in both first name and last name!");
+                }
+            });
+        });
+
+
+        function TableAdd() {
+            $("#table1")
+                .append($('<tr>')
+                    .append($('<td>').text(($("#AmountBought").val()-(times-1)))
+                    )
+                    .append($('<td>').text($("#FirstName").val())
+                )
+                    .append($('<td>').text($("#LastName").val())
+                    )
+            )
+
+            times--;
+            StopNames()
+            ClearNameText()
+        }
+
+        $(function () {
+
+            $('.name-input').keydown(function (e) {
+
+                if ( e.ctrlKey || e.altKey) {
+
+                    e.preventDefault();
+
+                } else {
+
+                    var key = e.keyCode;
+
+                    if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+
+                        e.preventDefault();
+
+                    }
+
+                }
+
+            });
+
+        });
+    </script>
+}

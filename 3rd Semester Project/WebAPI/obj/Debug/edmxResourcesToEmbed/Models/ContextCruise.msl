@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="rdSemesterProjectModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Cruises">
+      <EntityTypeMapping TypeName="rdSemesterProjectModel.Cruise">
+        <MappingFragment StoreEntitySet="Cruise">
+          <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DeparturePlace" ColumnName="DeparturePlace" />
+          <ScalarProperty Name="ArrivalPlace" ColumnName="ArrivalPlace" />
+          <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

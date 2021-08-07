@@ -1,0 +1,49 @@
+﻿<Window x:Class="WpfApp.Views.TripViews.TripMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:WpfApp.Views.TripViews"
+        mc:Ignorable="d"
+        Title="TripMenu" Height="500" Width="1200">
+    <Grid>
+        <fa:ImageAwesome Icon="Ship" VerticalAlignment="Center" HorizontalAlignment="Center" Width="47" Margin="30,15,1116.6,416.4" Height="39"/>
+        <Button Content="Create" HorizontalAlignment="Left" Margin="21,68,0,0" VerticalAlignment="Top" Width="96" Click="CreateTrip"/>
+        <Button Content="Show Info" HorizontalAlignment="Left" Margin="21,113,0,0" VerticalAlignment="Top" Width="96" Click="ShowInfo"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="21,190,0,0" VerticalAlignment="Top" Width="96" Click="DeleteMessageBox"/>
+        <Button Content="Update" HorizontalAlignment="Left" Margin="21,153,0,0" VerticalAlignment="Top" Width="96" Click="UpdateTrip"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="30,405,0,0" VerticalAlignment="Top" Width="75" Click="Back"/>
+
+        <DataGrid x:Name="dg" AutoGenerateColumns="False" IsReadOnly="True" FontSize="16" VerticalAlignment="Top" Margin="157,68,9.6,0" RenderTransformOrigin="-0.147,0.038">
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="50"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="80"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="150"/>
+                <DataGridTextColumn Header="DeparturePlace" Binding="{Binding DeparturePlace}" Width="144"/>
+                <DataGridTextColumn Header="ArrivalPlace" Binding="{Binding ArrivalPlace}" Width="118"/>
+                <DataGridTextColumn Header="DepartureDate" Binding="{Binding DepartureDate}" Width="180"/>
+                <DataGridTextColumn Header="ArrivalDate" Binding="{Binding ArrivalDate}" Width="180"/>
+                <DataGridTextColumn Header="UserId" Binding="{Binding UserId}" Width="0" Visibility="Collapsed"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox Name="searchName" HorizontalAlignment="Left" Height="24" Margin="186,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="101" TextChanged="TextChanged"/>
+        <Label Content="Name" HorizontalAlignment="Left" Height="24" Margin="214,15,0,0" VerticalAlignment="Top" Width="42"/>
+        <Label Content="DeparturePlace" HorizontalAlignment="Left" Margin="353,15,0,0" VerticalAlignment="Top"/>
+        <Label Content="ArrivalPlace" HorizontalAlignment="Left" Margin="533,16,0,0" VerticalAlignment="Top"/>
+        <Label Content="DepartureDate" HorizontalAlignment="Left" Margin="715,15,0,0" VerticalAlignment="Top"/>
+        <Label Content="ArrivalDate" HorizontalAlignment="Left" Margin="909,16,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="searchDeparturePlace" HorizontalAlignment="Left" Height="23" Margin="337,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextChanged"/>
+        <TextBox Name="searchArrivalPlace" HorizontalAlignment="Left" Height="23" Margin="507,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextChanged"/>
+        <DatePicker Name="searchDepartureDate" HorizontalAlignment="Left" Margin="693,38,0,0" VerticalAlignment="Top" Width="130" Focusable="False" SelectedDateChanged="SelectedDateChanged"/>
+        <DatePicker Name="searchArrivalDate" HorizontalAlignment="Left" Margin="872,38,0,0" VerticalAlignment="Top" Width="138" Focusable="False" SelectedDateChanged="SelectedDateChanged"/>
+
+        <Button Content="Search" HorizontalAlignment="Left" Margin="1035,35,0,0" VerticalAlignment="Top" Width="75"/>
+    </Grid>
+</Window>

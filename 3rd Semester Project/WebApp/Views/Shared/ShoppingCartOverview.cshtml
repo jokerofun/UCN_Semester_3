@@ -1,0 +1,183 @@
+﻿@using Microsoft.AspNet.Identity
+@using WebApp.Controllers;
+@using WebApp.Models;
+@model IEnumerable<WebApp.Models.DisplayShopingCartTicket>
+
+<h1>Shopping Cart Overview</h1>
+
+<head>
+    @section css {
+        <link href="@Url.Content("~/Content/ShoppingCartOverview.css")" rel="stylesheet" />
+    }
+</head>
+
+<body>
+    <main>
+        <div class="basket">
+            <div class="basket-labels">
+                <ul>
+                    <li class="item item-heading">Item</li>
+                    <li class="names">Names</li>
+                    <li class="price">Price</li>
+                    <li class="quantity">Quantity</li>
+                    <li class="subtotal">Subtotal</li>
+                </ul>
+            </div>
+
+            @if (Session["TicketsBought"] != null)
+            {
+                foreach (var item in Session["TicketsBought"] as List<WebApp.Models.DisplayShopingCartTicket>)
+                {
+        <div class="basket-product">
+            <div class="item">
+                <div class="product-details">
+                    <h1><strong><span class="item-quantity">@item.AmountBought</span>x @item.TicketName </strong> </h1>
+                </div>
+            </div>
+            <div class="names">
+                @foreach (BuyerName buyer in item.GetListOfBuyerNames())
+                {
+                    <p>@buyer.FirstName @buyer.LastName</p>
+                }
+            </div>
+            <div class="price"> @item.Price </div>
+            <div class="quantity">
+                <input class="quantity-field" readonly value="@item.AmountBought">
+            </div>
+            <div class="subtotal"></div>
+            <div class="remove">
+                @*@Html.ActionLink("Remove", "RemoveFromShopingList", new { id = item.Id }, new { @class = "deleteButton" })*@
+                <button class="remove" onclick="removeItem(@item.Id)">Remove</button>
+            </div>
+        </div>
+                }
+            }
+
+            
+        </div>
+        <aside>
+            <div class="summary">
+                <div class="summary-total-items"><span class="total-items"></span> Items in your Bag</div>
+                <div class="summary-total">
+                    <div class="total-title">Total</div>
+                    <div class="total-value final-value" id="basket-total"></div>
+                </div>
+                <div class="summary-checkout">
+                    <button class="checkout-cta">Checkout</button>
+                </div>
+            </div>
+        </aside>
+    </main>
+</body>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        var fadeTime = 300;
+
+        //$('.remove button').click(function () {
+        //    removeItem(this);
+        //});
+
+        $('.checkout-cta').click(function () {
+            recalculateCart(true);
+            checkout();
+        });
+
+        $(document).ready(function () {
+            updateSumItems();
+            calculateSubtotals();
+            recalculateCart(true);
+        });
+
+
+        /* Recalculate cart */
+        function recalculateCart(onlyTotal) {
+            var subtotal = 0;
+
+            /* Sum up row totals */
+            $('.basket-product').each(function () {
+                subtotal += parseFloat($(this).children('.subtotal').text());
+            });
+
+            /* Calculate totals */
+            var total = subtotal;
+            if (total == 0) { $('.checkout-cta').fadeOut(fadeTime); }
+
+            /*If switch for update only total, update only total display*/
+            if (onlyTotal) {
+                /* Update total display */
+                $('.total-value').fadeOut(fadeTime, function () {
+                    $('#basket-total').html(total.toFixed(2));
+                    $('.total-value').fadeIn(fadeTime);
+                });
+            } else {
+                /* Update summary display. */
+                $('.final-value').fadeOut(fadeTime, function () {
+                    $('#basket-subtotal').html(subtotal.toFixed(2));
+                    $('#basket-total').html(total.toFixed(2));
+                    if (total == 0) {
+                        $('.checkout-cta').fadeOut(fadeTime);
+                    } else {
+                        $('.checkout-cta').fadeIn(fadeTime);
+                    }
+                    $('.final-value').fadeIn(fadeTime);
+                });
+            }
+        }
+
+        function calculateSubtotals() {
+            var subtotal = 0;
+            $('.basket-product').each(function () {
+                subtotal = (parseFloat($(this).children('.price').text()) * parseFloat($(this).children('.quantity').children('.quantity-field').val()));
+                $(this).children('.subtotal').text(subtotal);
+                subtotal = 0;
+            });
+        }
+
+        function updateSumItems() {
+            var sumItems = 0;
+            $('.quantity-field').each(function () {
+                sumItems += parseInt($(this).val());
+            });
+            $('.total-items').text(sumItems);
+        }
+
+        /* Remove item from cart */
+        function removeItem(id) {
+            /* Remove row from DOM and recalc cart total */
+            var productRow = $('.remove button').parent().parent();
+            productRow.slideUp(fadeTime, function () {
+                    removeFromShoppingList(id);
+                    productRow.remove();
+                    recalculateCart();
+                    updateSumItems();
+            });
+        }
+
+        function removeFromShoppingList(id) {
+            $.ajax({
+                type: "GET",
+                url: "/UserTickets/RemoveFromShopingList/" + id,
+                success: function () {
+                    location.href = "/Shared/ShoppingCartOverview";
+                }
+            });
+        };
+
+        function checkout() {
+            localStorage.setItem('price', $('#basket-total').text());
+                $.ajax({
+                    type: "GET",
+                    url: "/Shared/PaymentGateway",
+                    success: function () {
+                        location.href = "/Shared/PaymentGateway" ;
+                    }
+                });
+        };
+        
+    </script>
+
+}

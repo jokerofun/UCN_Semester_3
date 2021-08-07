@@ -1,0 +1,15 @@
+03/12/2020 20:37:44	This log contains information about the import operation of the script 'TestScript.sql' into project '3rd Semester Database' on computer 'DESKTOP-OIIJJ3F' by user'admin.
+03/12/2020 20:37:44	Started importing file: C:\Users\admin\Desktop\TestScript.sql 
+03/12/2020 20:37:44	File name C:\Users\admin\Desktop\TestScript.sql (size: 2798)
+03/12/2020 20:37:44	Parsing import script
+03/12/2020 20:37:44	Total number of batches in script: 1
+03/12/2020 20:37:44	Total number of statements in script: 5
+03/12/2020 20:37:44	The script was successfully imported into the project.
+03/12/2020 20:37:44	Analyzing schema objects...
+03/12/2020 20:37:44	Scanning project for duplicate elements
+03/12/2020 20:37:45	Element 'Cruise' was merged into the existing script: 'C:\Users\admin\Source\Repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\dbo\Tables\Cruise.sql'.
+03/12/2020 20:37:45	Element 'Tickets' was merged into the existing script: 'C:\Users\admin\Source\Repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\dbo\Tables\Tickets.sql'.
+03/12/2020 20:37:45	Finished duplicate element processing
+03/12/2020 20:37:46	In the script that you provided to the import operation, one or more statements were not fully understood. These statements were moved to the ScriptsIgnoredOnImport.sql file. Review the file contents for additional information.
+03/12/2020 20:37:46	A summary of the import was saved to the following location: C:\Users\admin\Source\Repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\Import Script Logs\TestScript_sql_20201203073744.log
+03/12/2020 20:37:46	Click Finish to continue...

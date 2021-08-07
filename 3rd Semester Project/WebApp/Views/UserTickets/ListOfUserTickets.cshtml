@@ -1,0 +1,77 @@
+﻿@using Microsoft.AspNet.Identity
+@model IEnumerable<WebApp.Models.UserTicket>
+
+@{
+    ViewBag.Title = "ListOfUserTickets";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Account purchase history</h1>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TicketId)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in ViewBag.UserTickets)
+    {
+        <tr>
+            <td>
+                @item.FirstName
+            </td>
+            <td>
+                @item.LastName
+            </td>
+            <td>
+                @item.TicketId
+            </td>
+
+            @if (item.Active)
+            {
+                <td>
+                    @Html.ActionLink("Refund", "DeactivateUserTicket", "UserTickets", new { id = item.Id }, null)
+                </td>
+            }
+            else
+            {
+        <td>
+            Refunded
+        </td>
+            }
+        </tr>
+    }
+
+</table>
+
+<div>
+    <button>
+        @Html.ActionLink("Back to home page", "Index", "Home")
+    </button>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+<script>
+
+    $(document).ready(function () {
+            var bool = '@TempData["Successful"]';
+            if (bool != null && bool === 'False') {
+                alert("Trips can be refunded only 3 days or more before the departure date.");
+            }
+        });
+
+</script>
+}

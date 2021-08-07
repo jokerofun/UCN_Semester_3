@@ -1,0 +1,34 @@
+﻿@model WebApp.Models.Trip
+@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "DeleteTrip";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Delete Trip</h1>
+
+
+@using (Html.BeginForm("DeleteTrip", "Trip", FormMethod.Post, new { @class = "form-horizontal", role = "form", userId = ViewBag.BusinessAccess != null ? User.Identity.GetUserId() : null }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Confirm" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "ListOfTrips", new { userId = ViewBag.BusinessAccess != null ? User.Identity.GetUserId() : null })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

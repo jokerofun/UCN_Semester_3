@@ -1,0 +1,20 @@
+C:\Users\simeo\source\repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\bin\Debug\3rd Semester Database.dacpac
+C:\Users\simeo\source\repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\bin\Debug\_3rd_Semester_Database.dll
+C:\Users\simeo\source\repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\bin\Debug\_3rd_Semester_Database.pdb
+C:\Users\simeo\source\repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\obj\Debug\3rd Semester Database.sqlprojAssemblyReference.cache
+C:\Users\simeo\source\repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\obj\Debug\_3rd_Semester_Database.dll
+C:\Users\simeo\source\repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\obj\Debug\_3rd_Semester_Database.pdb
+C:\Users\admin\Source\Repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\bin\Debug\3rd Semester Database.dacpac
+C:\Users\admin\Source\Repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\bin\Debug\_3rd_Semester_Database.dll
+C:\Users\admin\Source\Repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\bin\Debug\_3rd_Semester_Database.pdb
+C:\Users\admin\Source\Repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\obj\Debug\3rd Semester Database.sqlprojAssemblyReference.cache
+C:\Users\admin\Source\Repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\obj\Debug\_3rd_Semester_Database.dll
+C:\Users\admin\Source\Repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\obj\Debug\_3rd_Semester_Database.pdb
+C:\Users\admin\Source\Repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\obj\Debug\Model.xml
+C:\Users\admin\Source\Repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\obj\Debug\refactor.xml
+C:\Users\admin\Source\Repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\obj\Debug\postdeploy.sql
+C:\Users\admin\Source\Repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\obj\Debug\predeploy.sql
+C:\Users\simeo\source\repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\obj\Debug\Model.xml
+C:\Users\simeo\source\repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\obj\Debug\refactor.xml
+C:\Users\simeo\source\repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\obj\Debug\postdeploy.sql
+C:\Users\simeo\source\repos\Misfits - 3rd Semester Project\3rd Semester Project\3rd Semester Database\obj\Debug\predeploy.sql

@@ -1,0 +1,25 @@
+﻿<Window x:Class="WpfApp.Views.TicketViews.TicketMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp.Views.TicketViews"
+        mc:Ignorable="d"
+        Title="TicketMenu" Height="Auto" Width="Auto">
+    <Grid>
+        <Button Content="Create" HorizontalAlignment="Left" Margin="43,85,0,0" VerticalAlignment="Top" Width="75" Click="CreateTicket"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="43,179,0,0" VerticalAlignment="Top" Width="75" Click="DeleteMessageBox"/>
+        <Button Content="Update" HorizontalAlignment="Left" Margin="43,132,0,0" VerticalAlignment="Top" Width="75" Click="UpdateTicket"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="43,432,0,0" Width="75" Height="22" VerticalAlignment="Top" RenderTransformOrigin="0.519,-0.754" Click="Back"/>
+        
+        <DataGrid x:Name="dg" AutoGenerateColumns="False" IsReadOnly="True" FontSize="16" VerticalAlignment="Top" Margin="200,68,397.6,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="30"/>
+                <DataGridTextColumn Header="TicketName" Binding="{Binding TicketName}" Width= "70"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="45"/>
+                <DataGridTextColumn Header="MaxTickets" Binding="{Binding MaxTickets}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

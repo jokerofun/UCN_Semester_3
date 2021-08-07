@@ -1,0 +1,86 @@
+﻿@model IEnumerable<WebApp.Models.Ticket>
+@using WebApp.Models;
+@using Microsoft.AspNet.Identity;
+
+@{
+    ViewBag.Title = "ListOfTickets";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <style>
+        a {
+            color: blue;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+            a:hover {
+                color: #FF5722;
+            }
+    </style>
+</head>
+
+<strong>
+    <body style="font-family:'Times New Roman';color:black;font-size: 17px;">
+        <h1>List Of Tickets</h1>
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayName("Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Description")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayName("Remaining")
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.TicketName
+                    </td>
+                    <td>
+                        @item.TicketDescription
+                    </td>
+                    <td>
+                        @item.Price
+                    </td>
+                    <td>
+                        @item.TicketsRemaining
+                    </td>
+                    <td>
+                        @if (User.IsInRole("Admin") || (User.IsInRole("Business") && ((Trip)ViewBag.Trip).UserId == User.Identity.GetUserId()))
+                        {
+                            @Html.ActionLink("Edit ", "UpdateTicket", new { Id = item.Id }, new { @class = "a" })
+                            @Html.ActionLink("Delete", "DeleteTicket", new { Id = item.Id, tripId = ViewBag.CurrentTrip })
+                        }
+                        <button class="btn1 ShopingBtn" type="button">
+                            @Html.ActionLink("Add To Cart", "BuyTicket", "Tickets", new { Id = item.Id, tripId = ViewBag.CurrentTrip }, new { id = "OT", style = "color: blue" })
+                        </button>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        @if (User.IsInRole("Admin") || (User.IsInRole("Business") && ((Trip)ViewBag.Trip).UserId == User.Identity.GetUserId()))
+        {
+            <button>
+                @Html.ActionLink("Create New", "CreateTicket", new { id = @ViewBag.CurrentTrip })
+            </button>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "ListOfTrips", "Trip", new { userId = User.IsInRole("Business") ? User.Identity.GetUserId() : null }, null)
+        </div>
+     </body>
+        
+</strong>

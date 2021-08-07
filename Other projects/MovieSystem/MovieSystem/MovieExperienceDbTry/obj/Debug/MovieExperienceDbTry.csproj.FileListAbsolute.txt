@@ -1,0 +1,36 @@
+C:\DMA_Programming\CSharp\MVC\MovieSystem\MovieExperienceDbTry\obj\Debug\MovieExperienceDbTry.csprojAssemblyReference.cache
+C:\DMA_Programming\CSharp\MVC\MovieSystem\MovieExperienceDbTry\obj\Debug\MovieExperienceDbTry.csproj.CoreCompileInputs.cache
+C:\DMA_Programming\CSharp\MVC\MovieSystem\MovieExperienceDbTry\bin\Debug\MovieSystem.exe.config
+C:\DMA_Programming\CSharp\MVC\MovieSystem\MovieExperienceDbTry\bin\Debug\MovieSystem.exe
+C:\DMA_Programming\CSharp\MVC\MovieSystem\MovieExperienceDbTry\bin\Debug\MovieSystem.pdb
+C:\DMA_Programming\CSharp\MVC\MovieSystem\MovieExperienceDbTry\bin\Debug\MovieExperienceDb.dll
+C:\DMA_Programming\CSharp\MVC\MovieSystem\MovieExperienceDbTry\bin\Debug\Dapper.dll
+C:\DMA_Programming\CSharp\MVC\MovieSystem\MovieExperienceDbTry\bin\Debug\MovieExperienceDb.pdb
+C:\DMA_Programming\CSharp\MVC\MovieSystem\MovieExperienceDbTry\bin\Debug\Dapper.xml
+C:\DMA_Programming\CSharp\MVC\MovieSystem\MovieExperienceDbTry\obj\Debug\MovieExperienceDbTry.csproj.CopyComplete
+C:\DMA_Programming\CSharp\MVC\MovieSystem\MovieExperienceDbTry\obj\Debug\MovieSystem.exe
+C:\DMA_Programming\CSharp\MVC\MovieSystem\MovieExperienceDbTry\obj\Debug\MovieSystem.pdb
+C:\test2\MovieSystem (2)\MovieExperienceDbTry\bin\Debug\MovieSystem.exe.config
+C:\test2\MovieSystem (2)\MovieExperienceDbTry\bin\Debug\MovieSystem.exe
+C:\test2\MovieSystem (2)\MovieExperienceDbTry\bin\Debug\MovieSystem.pdb
+C:\test2\MovieSystem (2)\MovieExperienceDbTry\bin\Debug\MovieExperienceDb.dll
+C:\test2\MovieSystem (2)\MovieExperienceDbTry\bin\Debug\Dapper.dll
+C:\test2\MovieSystem (2)\MovieExperienceDbTry\bin\Debug\MovieExperienceDb.pdb
+C:\test2\MovieSystem (2)\MovieExperienceDbTry\bin\Debug\Dapper.xml
+C:\test2\MovieSystem (2)\MovieExperienceDbTry\obj\Debug\MovieExperienceDbTry.csprojAssemblyReference.cache
+C:\test2\MovieSystem (2)\MovieExperienceDbTry\obj\Debug\MovieExperienceDbTry.csproj.CoreCompileInputs.cache
+C:\test2\MovieSystem (2)\MovieExperienceDbTry\obj\Debug\MovieExperienceDbTry.csproj.CopyComplete
+C:\test2\MovieSystem (2)\MovieExperienceDbTry\obj\Debug\MovieSystem.exe
+C:\test2\MovieSystem (2)\MovieExperienceDbTry\obj\Debug\MovieSystem.pdb
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDbTry\bin\Debug\MovieSystem.exe.config
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDbTry\bin\Debug\MovieSystem.exe
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDbTry\bin\Debug\MovieSystem.pdb
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDbTry\bin\Debug\MovieExperienceDb.dll
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDbTry\bin\Debug\Dapper.dll
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDbTry\bin\Debug\MovieExperienceDb.pdb
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDbTry\bin\Debug\Dapper.xml
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDbTry\obj\Debug\MovieExperienceDbTry.csprojAssemblyReference.cache
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDbTry\obj\Debug\MovieExperienceDbTry.csproj.CoreCompileInputs.cache
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDbTry\obj\Debug\MovieExperienceDbTry.csproj.CopyComplete
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDbTry\obj\Debug\MovieSystem.exe
+C:\Users\simeo\OneDrive\Desktop\Projects\MovieSystem (Corrected)\MovieSystem (2)\MovieExperienceDbTry\obj\Debug\MovieSystem.pdb
