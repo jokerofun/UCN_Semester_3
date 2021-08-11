@@ -1,0 +1,2 @@
+For this semester project our group was asked to come up with an idea for a web application and develop it. The idea we stopped at was a ferry boat trip and selling tickets system.
+It was developed using C#, ASP.net for user accounts and DB connection, Blazor for web views, WPF for desktop app, Entity Framework for object relational mappping, JS(JQuery) and Ajax for some specific cases, and CSS for styling.
